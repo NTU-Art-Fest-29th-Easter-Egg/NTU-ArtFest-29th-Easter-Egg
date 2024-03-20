@@ -1,7 +1,11 @@
 {
   "recommendations": [
-    "Vue.volar",
+    "vue.volar",
+    "ms-vscode.vscode-typescript-next",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss",
+    "Nuxtr.nuxtr-vscode",
   ]
 }
