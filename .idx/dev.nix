@@ -7,6 +7,9 @@
     "svelte.svelte-vscode"
     "vue.volar"
   ];
+  idx.workspace.onCreate = {
+    npm-install = "npm install";
+  };
   idx.previews = {
     previews = [
       {
