@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import { onBeforeMount } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+onBeforeMount(() => {
+  if (window.location.pathname.toLowerCase() != '/sharewithqrcode' && window.matchMedia('(min-width: 768px)').matches) {
+    window.location.href = '/shareWithQRCode'
+  }
+})
 </script>
 
 <template>
@@ -20,7 +27,7 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
-<style scoped>
+<!-- <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -82,4 +89,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style> -->
