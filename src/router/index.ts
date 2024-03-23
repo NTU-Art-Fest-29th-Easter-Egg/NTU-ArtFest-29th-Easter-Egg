@@ -33,6 +33,11 @@ const router = createRouter({
       name: 'Exchange',
       component: () => import('../views/ExchangeView.vue')
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('../views/NotFoundView.vue')
+    }
   ]
 })
 
