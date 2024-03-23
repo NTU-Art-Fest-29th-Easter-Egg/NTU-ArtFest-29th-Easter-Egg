@@ -1,0 +1,1 @@
+@media (min-width: 1024px){.about{min-height:100vh;display:flex;align-items:center}}@keyframes hue{0%{filter:hue-rotate(0)}to{filter:hue-rotate(-360deg)}}.rainbow-text{color:transparent;animation:hue 1.5s linear infinite;background-image:linear-gradient(90deg,violet,indigo,#00f,green,#ff0,orange,red,violet);-webkit-background-clip:text}
