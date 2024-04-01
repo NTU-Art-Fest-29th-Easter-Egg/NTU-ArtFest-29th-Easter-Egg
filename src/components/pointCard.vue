@@ -20,13 +20,12 @@ onMounted(() => {
     point += cookieData.easterEggs.length;
 
     selectedImage.value = `pointCard/${point}.png`;
-    console.log(selectedImage.value);
 });
 
-function getCookie(name: string): string | null {
+function getCookie(name: string): string {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
-    return null;
+    if (parts.length === 2) return parts.pop()?.split(';').shift() || "{'err': 'cookie value is empty'}";
+    return "{'err': 'cookie name is not found'}";
 }
 </script>
