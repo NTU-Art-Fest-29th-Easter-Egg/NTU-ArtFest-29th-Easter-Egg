@@ -1,6 +1,10 @@
+<script setup lang="ts">
+import pointCard from '../components/pointCard.vue'
+</script>
+
 <template>
-    <div class="about">
-        <h1>This is an about page</h1>
+    <div class="pointCard">
+        <pointCard />
     </div>
 </template>
 
