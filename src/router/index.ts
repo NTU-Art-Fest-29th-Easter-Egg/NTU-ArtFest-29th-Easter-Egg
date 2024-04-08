@@ -19,19 +19,9 @@ const router = createRouter({
       component: () => import('../views/ExploreView.vue')
     },
     {
-      path: '/voice',
-      name: 'Voice',
-      component: () => import('../views/VoiceView.vue')
-    },
-    {
-      path: '/point',
-      name: 'Point',
-      component: () => import('../views/PointView.vue')
-    },
-    {
-      path: '/exchange',
-      name: 'Exchange',
-      component: () => import('../views/ExchangeView.vue')
+      path: '/result',
+      name: 'Result',
+      component: () => import('../views/ResultView.vue')
     },
     {
       path: '/:pathMatch(.*)*',
