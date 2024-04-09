@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import router from '../router'
+
 function scrollToPage2() {
   const page2 = document.getElementById('page-2')
   page2?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function goToExplore() {
+  router.push('/explore')
 }
 </script>
 
@@ -43,6 +49,7 @@ function scrollToPage2() {
             </p>
             <button
               class="text-white text-1xl enter-button w-[250px] mt-[100px] flex justify-center items-begin"
+              @click="goToExplore"
             ></button>
           </div>
         </div>
