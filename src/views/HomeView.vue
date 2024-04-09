@@ -6,7 +6,7 @@ function scrollToPage2() {
 </script>
 
 <template>
-  <main class="h-screen w-full overflow-hidden">
+  <main class="h-screen w-full">
     <div class="bg-black flex h-screen flex-col" id="page-1">
       <img
         src="../assets/main-page/title.png"
