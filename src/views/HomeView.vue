@@ -30,7 +30,7 @@ function goToExplore() {
       <div class="flex items-center justify-center mb-28">
         <img src="../assets/main-page/flash.png" class="w-24" />
         <a href="https://google.com" class="text-button text-1xl text-white">藝術季官網</a>
-        <div class="divider"></div>
+        <div class="w-[1px] h-[40px] bg-white mx-[15px]"></div>
         <button class="text-button text-1xl text-white" @click="scrollToPage2">心理測驗</button>
         <div class="w-24"></div>
       </div>
@@ -48,7 +48,7 @@ function goToExplore() {
               我們將帶你穿梭時空，跨越過去與未來，在混亂的時空找到自我。
             </p>
             <button
-              class="text-white text-1xl enter-button w-[250px] mt-[100px] flex justify-center items-begin"
+              class="enter-button text-white text-1xl w-[250px] h-[100px] mt-[100px] flex justify-center items-begin"
               @click="goToExplore"
             ></button>
           </div>
@@ -66,18 +66,9 @@ function goToExplore() {
   background-size: contain;
 }
 
-.divider {
-  width: 2px;
-  height: 40px;
-  background-color: rgb(255, 255, 255);
-  margin: 0 15px;
-}
-
 .enter-button {
   background-image: url('../assets/main-page/enter_button.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 250px;
-  height: 100px;
 }
 </style>
