@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{o,c as s,a as t}from"./index-C2tFQYxQ.js";const c={},r={class:"explore"},a=t("h1",null,"This is an explore page",-1),n=[a];function _(i,l){return o(),s("div",r,n)}const f=e(c,[["render",_]]);export{f as default};
