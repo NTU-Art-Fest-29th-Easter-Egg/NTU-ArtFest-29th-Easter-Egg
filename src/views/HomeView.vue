@@ -1,41 +1,74 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import router from '../router'
+
+function scrollToPage2() {
+  const page2 = document.getElementById('page-2')
+  page2?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function goToExplore() {
+  router.push('/explore')
+}
+</script>
 
 <template>
-  <main class="bg-[#778DA9] h-screen flex flex-col space-evenly flex-1 w-full">
-    <header class="bg-[#415A77] text-center py-10">
-      <h1 class="text-6xl font-bold text-[#D9D9D9]">台北掛我電話</h1>
-    </header>
-    <div class="px-10 py-20 flex flex-col space-y-20">
-      <div class="max-w-[750px] mx-auto">
-        <div class="flex flex-row gap-5">
-          <div class="flex flex-col items-center">
-            <button
-              class="min-w-[300px] bg-[#415A77] px-10 py-8 text-[#D9D9D9] rounded-full text-5xl"
-            >
-              心理測驗
-            </button>
-            <p class="text-2xl">開始你的語音之旅</p>
-          </div>
-          <p class="text-[#D9D9D9] text-2xl">
-            快來參加一場語音的沉浸之旅，獲得測驗結果一起解鎖可愛的電話吉祥物之外，還可以匹配到和你性格相近的藝人喔
-          </p>
-        </div>
+  <main class="h-screen w-full">
+    <div class="bg-black flex h-screen flex-col" id="page-1">
+      <img
+        src="../assets/main-page/title.png"
+        alt="title"
+        class="mt-[130px] mb-0 w-[95%] max-w-4xl mx-auto my-auto select-none pointer-events-none"
+      />
+      <p
+        class="text-center text-white text-2xl flex items-center justify-center mt-[-15%] scale-200"
+      >
+        NTU ATR FEST 29TH
+      </p>
+      <p class="text-center text-white text-2xl flex items-center justify-center mt-3 mb-32">
+        5/3-5/19
+      </p>
+      <div class="flex items-center justify-center mb-28">
+        <img src="../assets/main-page/flash.png" class="w-24" />
+        <a href="https://google.com" class="text-button text-1xl text-white">藝術季官網</a>
+        <div class="w-[1px] h-[40px] bg-white mx-[15px]"></div>
+        <button class="text-button text-1xl text-white" @click="scrollToPage2">心理測驗</button>
+        <div class="w-24"></div>
       </div>
-      <div class="flex flex-col items-end max-w-[750px] mx-auto">
-        <div class="flex flex-row gap-5">
-          <p class="text-[#D9D9D9] text-2xl">
-            內有12個由驚喜來賓錄製的小語音，快來找找你偶像的聲音，聽完6個回答問題還可以參加抽獎喔!!
-          </p>
-          <div class="flex flex-col items-center">
+    </div>
+    <div class="bg-black flex h-screen flex-col p-10 pr-0" id="page-2">
+      <div
+        class="bg-gradient-to-br from-white to-[#F6F800] h-screen rounded-l-[150px] flex items-center"
+      >
+        <div class="rounded-r-[30px] bg-black h-[400px] w-[40px]"></div>
+        <div class="flex justify-end flex-1 pr-[10%]">
+          <div>
+            <h1 class="text-black text-4xl font-bold pb-[20px]">心理測驗</h1>
+            <p class="text-black text-2xl max-w-[250px]">
+              當你接到穿越時空的來電，你會怎麼做?
+              我們將帶你穿梭時空，跨越過去與未來，在混亂的時空找到自我。
+            </p>
             <button
-              class="min-w-[300px] bg-[#415A77] px-10 py-8 text-[#D9D9D9] rounded-full text-5xl"
-            >
-              聲音彩蛋
-            </button>
-            <p class="text-2xl">快來抽獎</p>
+              class="enter-button text-white text-1xl w-[250px] h-[100px] mt-[100px] flex justify-center items-begin"
+              @click="goToExplore"
+            ></button>
           </div>
         </div>
       </div>
     </div>
   </main>
 </template>
+
+<style>
+#page-1 {
+  background-image: url('../assets/main-page/top.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.enter-button {
+  background-image: url('../assets/main-page/enter_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+</style>
