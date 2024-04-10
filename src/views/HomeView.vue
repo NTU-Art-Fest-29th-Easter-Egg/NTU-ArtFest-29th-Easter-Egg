@@ -14,14 +14,9 @@ function goToExplore() {
 <template>
   <main class="h-screen w-full">
     <div class="bg-black flex h-screen flex-col" id="page-1">
-      <img
-        src="../assets/main-page/title.png"
-        alt="title"
-        class="mt-[130px] mb-0 w-[95%] max-w-4xl mx-auto my-auto select-none pointer-events-none"
-      />
-      <p
-        class="text-center text-white text-2xl flex items-center justify-center mt-[-15%] scale-200"
-      >
+      <img src="../assets/main-page/title.png" alt="title"
+        class="mt-[130px] mb-0 w-[95%] max-w-4xl mx-auto my-auto select-none pointer-events-none" />
+      <p class="text-center text-white text-2xl flex items-center justify-center mt-[-15%] scale-200">
         NTU ATR FEST 29TH
       </p>
       <p class="text-center text-white text-2xl flex items-center justify-center mt-3 mb-32">
@@ -29,16 +24,14 @@ function goToExplore() {
       </p>
       <div class="flex items-center justify-center mb-28">
         <img src="../assets/main-page/flash.png" class="w-24" />
-        <a href="https://google.com" class="text-button text-1xl text-white">藝術季官網</a>
+        <a href="https://ntuartfest.com" class="text-button text-1xl text-white">藝術季官網</a>
         <div class="w-[1px] h-[40px] bg-white mx-[15px]"></div>
         <button class="text-button text-1xl text-white" @click="scrollToPage2">心理測驗</button>
         <div class="w-24"></div>
       </div>
     </div>
     <div class="bg-black flex h-screen flex-col p-10 pr-0" id="page-2">
-      <div
-        class="bg-gradient-to-br from-white to-[#F6F800] h-screen rounded-l-[150px] flex items-center"
-      >
+      <div class="bg-gradient-to-br from-white to-[#F6F800] h-screen rounded-l-[150px] flex items-center">
         <div class="rounded-r-[30px] bg-black h-[400px] w-[40px]"></div>
         <div class="flex justify-end flex-1 pr-[10%]">
           <div>
@@ -49,8 +42,7 @@ function goToExplore() {
             </p>
             <button
               class="enter-button text-white text-1xl w-[250px] h-[100px] mt-[100px] flex justify-center items-begin"
-              @click="goToExplore"
-            ></button>
+              @click="goToExplore"></button>
           </div>
         </div>
       </div>
