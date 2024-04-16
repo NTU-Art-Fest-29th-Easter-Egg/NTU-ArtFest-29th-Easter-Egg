@@ -38,6 +38,38 @@
             <div class="bg-black w-[80px] h-[35px] rounded-[5px] mr-4 relative triangle-up"></div>
             <div class="bg-black w-[80px] h-[35px] rounded-[5px] relative triangle-right"></div>
           </div>
+
+          <div class="pt-4">
+            <div>
+              <div
+                :class="{ 'bg-black text-white border-black': option1Selected, 'bg-white text-black border-black': !option1Selected }"
+                class="w-[70vw] h-auto min-h-[3rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
+                @click="option1Selected = true; option2Selected = false">
+                <p class="max-w-[90%]">
+                  這個科技產品非常縝密、精細，好想知道他是怎麼被設計的！
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-3">
+              <div
+                :class="{ 'bg-black text-white border-black': option2Selected, 'bg-white text-black border-black': !option2Selected }"
+                class="w-[70vw] h-auto min-h-[3rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
+                @click="option2Selected = true; option1Selected = false">
+                <p class="max-w-[90%]">
+                  這個發明未來可以應用的地方很廣，好想帶回家用！
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <button :disabled="!option1Selected && !option2Selected"
+              :class="{ 'opacity-50': !option1Selected && !option2Selected }"
+              class="w-[30vw] h-auto min-h-[3rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 border-black bg-white text-black mt-4">
+              下一題
+            </button>
+          </div>
         </div>
       </div>
     </transition>
@@ -49,6 +81,8 @@ export default {
   data() {
     return {
       showTestPage: false,
+      option1Selected: false,
+      option2Selected: false,
     };
   },
 };
