@@ -1,6 +1,6 @@
 <template>
   <div class="explore">
-    <transition name="fade">
+    <transition name="fade" mode="in-out" appear>
       <div class="enterPage" v-if="!showTestPage">
         <div class="bg-gradient-to-br from-white to-[#F6F800] h-screen flex flex-col items-center justify-center">
           <div class="flex justify-center items-center mb-5">
@@ -12,7 +12,7 @@
           </div>
 
           <div class="flex justify-center items-center">
-            <img @click="showTestPage = true" src="@/assets/explore-page/點擊穿越時空.png" class="w-8/12 mx-5 my-3" />
+            <img @click="initTestPage" src="@/assets/explore-page/點擊穿越時空.png" class="w-8/12 mx-5 my-3" />
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
                 <img src="@/assets/explore-page/screen.png"
                   class="absolute w-full h-full transform scale-150 opacity-20" />
                 <p class="relative left-[5%] right-[5%] top-[5%] bottom-[5%] text-black text-xl max-w-[90%] text-left">
-                  當你還沒熟悉完村莊，電話又響了，你穿越到了一個未來的科技世界，城市裡光彩奪目的高樓大廈林立，人們穿梭在各種高科技裝置之間。一位科學家邀請你參觀他的實驗室，向你展示了一個令人驚嘆的發明，你覺得很有趣的地方可能是？
+                  {{ topic.question }}
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@
                 class="w-[70vw] h-auto min-h-[3rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
                 @click="option1Selected = true; option2Selected = false">
                 <p class="max-w-[90%]">
-                  這個科技產品非常縝密、精細，好想知道他是怎麼被設計的！
+                  {{ topic.options_A.text }}
                 </p>
               </div>
             </div>
@@ -57,14 +57,14 @@
                 class="w-[70vw] h-auto min-h-[3rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
                 @click="option2Selected = true; option1Selected = false">
                 <p class="max-w-[90%]">
-                  這個發明未來可以應用的地方很廣，好想帶回家用！
+                  {{ topic.options_B.text }}
                 </p>
               </div>
             </div>
           </div>
 
           <div class="pt-4">
-            <button :disabled="!option1Selected && !option2Selected"
+            <button :disabled="!option1Selected && !option2Selected" @click="nextQuestion"
               :class="{ 'opacity-50': !option1Selected && !option2Selected }"
               class="w-[30vw] h-auto min-h-[3rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 border-black bg-white text-black mt-4">
               下一題
@@ -77,13 +77,66 @@
 </template>
 
 <script>
+import topics from '@/assets/explore-page/topics.json';
+
 export default {
   data() {
     return {
       showTestPage: false,
+      animateRefresh: true,
       option1Selected: false,
       option2Selected: false,
+      topic: {
+        index: 0,
+        question: '',
+        options_A: {
+          text: '',
+          type: {
+            position: -1,
+            value: -1,
+          },
+        },
+        options_B: {
+          text: '',
+          type: {
+            position: -1,
+            value: -1,
+          }
+        },
+      },
+      answers: [],
     };
+  },
+  methods: {
+    initTestPage() {
+      this.topic = topics.topic[this.topic.index];
+      this.showTestPage = true;
+    },
+    nextQuestion() {
+      if (this.option1Selected) {
+        this.answers.push(this.topic.options_A.type);
+      } else if (this.option2Selected) {
+        this.answers.push(this.topic.options_B.type);
+      }
+
+      this.option1Selected = false;
+      this.option2Selected = false;
+
+      if (this.topic.index < topics.topic.length) {
+        this.topic = topics.topic[this.topic.index];
+      } else {
+        console.log(this.answers);
+      }
+
+      // Wait for 0.5s to let the transition finish
+      setTimeout(() => {
+        this.animateRefresh = false;
+        // Wait for another 0.5s to refresh the page
+        setTimeout(() => {
+          this.animateRefresh = true;
+        }, 500);
+      }, 500);
+    },
   },
 };
 </script>
@@ -101,7 +154,7 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .fade-enter,
