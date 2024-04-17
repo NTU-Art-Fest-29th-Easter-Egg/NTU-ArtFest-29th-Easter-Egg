@@ -14,16 +14,16 @@ function goToExplore() {
 <template>
   <main class="h-screen w-full">
     <div class="bg-black flex h-screen flex-col" id="page-1">
-      <img src="@/assets/main-page/title.png" alt="title"
+      <img src="../assets/main-page/title.png" alt="title"
         class="mt-[130px] mb-0 w-[95%] max-w-4xl mx-auto my-auto select-none pointer-events-none" />
       <p class="text-center text-white text-2xl flex items-center justify-center mt-[-15%] scale-200">
         NTU ATR FEST 29TH
       </p>
       <p class="text-center text-white text-2xl flex items-center justify-center mt-3 mb-32">
-        5/3 - 5/19
+        5/3-5/19
       </p>
       <div class="flex items-center justify-center mb-28">
-        <img src="@/assets/main-page/flash.png" class="w-24" />
+        <img src="../assets/main-page/flash.png" class="w-24" />
         <a href="https://ntuartfest.com" class="text-button text-1xl text-white">藝術季官網</a>
         <div class="w-[1px] h-[40px] bg-white mx-[15px]"></div>
         <button class="text-button text-1xl text-white" @click="scrollToPage2">心理測驗</button>
@@ -52,14 +52,14 @@ function goToExplore() {
 
 <style>
 #page-1 {
-  background-image: url('@/assets/main-page/top.png');
+  background-image: url('../assets/main-page/top.png');
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .enter-button {
-  background-image: url('@/assets/main-page/enter_button.png');
+  background-image: url('../assets/main-page/enter_button.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
