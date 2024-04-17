@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onBeforeMount } from 'vue'
+import router from '../router'
 
 onBeforeMount(() => {
-    console.log(window.matchMedia('(min-width: 768px)').matches)
     if (!window.matchMedia('(min-width: 768px)').matches) {
-        window.location.href = '/'
+        router.push('/')
     }
 })
 </script>
