@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onBeforeMount } from 'vue'
-import router from '../router'
+import { useRouter } from 'vue-router'
 
 onBeforeMount(() => {
+    const router = useRouter()
     if (!window.matchMedia('(min-width: 768px)').matches) {
         router.push('/')
     }
