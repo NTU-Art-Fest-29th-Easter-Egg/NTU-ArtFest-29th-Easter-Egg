@@ -5,6 +5,10 @@
             "hash": "aa065e0c6d79e97431537290138acab8"
         },
         {
+            "type": "0000",
+            "hash": "aa065e0c6d79e97431537290138acab8"
+        },
+        {
             "type": "1000",
             "hash": "4b23c2be801c4f60570960821471c192"
         },
@@ -29,7 +33,15 @@
             "hash": "023e71de8f1023cda4f92935f11f8878"
         },
         {
+            "type": "0110",
+            "hash": "023e71de8f1023cda4f92935f11f8878"
+        },
+        {
             "type": "1001",
+            "hash": "20ec3ffc00ed5c4a820b316f2bcb4af1"
+        },
+        {
+            "type": "1011",
             "hash": "20ec3ffc00ed5c4a820b316f2bcb4af1"
         },
         {
@@ -42,6 +54,10 @@
         },
         {
             "type": "1100",
+            "hash": "bbe39eea86b9ef7b66d6aad825570593"
+        },
+        {
+            "type": "1110",
             "hash": "bbe39eea86b9ef7b66d6aad825570593"
         },
         {
