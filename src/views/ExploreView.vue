@@ -28,7 +28,7 @@
                 <img src="@/assets/explore-page/screen.png"
                   class="absolute w-full h-full transform scale-150 opacity-20" />
                 <p
-                  class="relative left-[5%] right-[5%] top-[5%] bottom-[5%] text-black text-xl max-w-[90%] text-left mt-2 mb-2">
+                  class="relative left-[5%] right-[5%] top-[5%] bottom-[5%] text-black text-l max-w-[90%] text-left mt-2 mb-2">
                   {{ topic.question }}
                 </p>
               </div>
@@ -68,7 +68,7 @@
             <button :disabled="!option1Selected && !option2Selected" @click="nextQuestion"
               :class="{ 'opacity-50': !option1Selected && !option2Selected }"
               class="w-[30vw] h-auto min-h-[2rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 border-black bg-white text-black mt-4">
-              <span v-if="topic.index >= 7">尋找屬於你的電話</span>
+              <span v-if="topic.index >= 7">尋找你的電話</span>
               <span v-else>下一題</span>
             </button>
           </div>
