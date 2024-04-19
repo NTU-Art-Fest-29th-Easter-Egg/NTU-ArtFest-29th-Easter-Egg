@@ -4,7 +4,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"OH_MY_POSH": "0" // Requires Nerd fonts(https://www.nerdfonts.com/font-downloads), set to 1 to enable
+			"OH_MY_POSH": "1" // Requires Nerd fonts(https://www.nerdfonts.com/font-downloads), set to 1 to enable
 		}
 	},
 	"mounts": [
@@ -19,14 +19,10 @@
 				"esbenp.prettier-vscode",
 				"Nuxtr.nuxtr-vscode",
 				"Prisma.prisma"
-			]
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			}
 		}
-	},
-	"onCreateCommand": "npm install -g npm@latest bun@latest && sudo rm /usr/local/bin/npm /usr/local/bin/npx",
-	"postCreateCommand": {
-		"link-npm": "sudo ln -s /usr/local/share/npm-global/bin/npm /usr/local/bin/npm",
-		"link-npx": "sudo ln -s /usr/local/share/npm-global/bin/npx /usr/local/bin/npx",
-		"link-bun": "sudo ln -s /usr/local/share/npm-global/bin/bun /usr/local/bin/bun",
-		"link-bunx": "sudo ln -s /usr/local/share/npm-global/bin/bunx /usr/local/bin/bunx"
 	}
 }
