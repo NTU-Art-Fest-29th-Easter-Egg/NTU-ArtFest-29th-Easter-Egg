@@ -1,0 +1,1 @@
+import{_ as o,f as t,o as s,c,g as n,a as r}from"./index-BWlFL_Y7.js";const a="/assets/title-ChYzw3bu.png",_={},i={class:"bg-gradient-to-br from-white to-[#F6F800] h-dvh"},l=r("img",{src:a,class:"w-48 pl-5 pt-3"},null,-1);function p(d,m){const e=t("RouterView");return s(),c("div",i,[l,n(e)])}const h=o(_,[["render",p]]);export{h as default};
