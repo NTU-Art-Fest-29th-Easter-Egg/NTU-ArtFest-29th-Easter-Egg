@@ -13,9 +13,3 @@ onBeforeMount(() => {
 <template>
   <RouterView />
 </template>
-
-<style scoped>
-body {
-  font-family: "Noto Sans TC";
-}
-</style>
