@@ -61,129 +61,120 @@
   </div>
 </template>
 
-<script lang="javascript">
+<script setup lang="ts">
+import { ref } from 'vue';
 import topics from '@/assets/explore-page/topics.json';
 import resultHash from '@/assets/explore-page/result_hash.json';
-import router from '../router';
+import { useRoute, useRouter } from 'vue-router'
 
-export default {
-  data() {
-    return {
-      showInitPage: true,
-      showTestPage: false,
-      animateRefresh: false,
-      option1Selected: false,
-      option2Selected: false,
-      startTime: -1,
-      topic: {
-        index: 0,
-        question: '',
-        options_A: {
-          text: '',
-          type: {
-            position: -1,
-            value: -1,
-          },
-        },
-        options_B: {
-          text: '',
-          type: {
-            position: -1,
-            value: -1,
-          }
-        },
-      },
-      answers: [],
-    };
-  },
-  methods: {
-    initTestPage() {
-      this.topic = topics.topic[this.topic.index];
-      this.showInitPage = false;
-      this.showTestPage = true;
-      this.startTime = Date.now();
+const route = useRoute()
+const router = useRouter()
 
-      setTimeout(() => {
-        this.animateRefresh = true;
-      }, 300);
+const showInitPage = ref(true);
+const showTestPage = ref(false);
+const animateRefresh = ref(false);
+const option1Selected = ref(false);
+const option2Selected = ref(false);
+let startTime = -1;
+const topic = ref({
+  index: 0,
+  question: '',
+  options_A: {
+    text: '',
+    type: {
+      position: -1,
+      value: -1,
     },
-    nextQuestion() {
-      // Wait for 0.3s to show the animate
-      setTimeout(() => {
-        if (this.option1Selected) {
-          this.answers.push({
-            'usedTime': Date.now() - this.startTime,
-            'type': this.topic.options_A.type
-          });
-        } else if (this.option2Selected) {
-          this.answers.push({
-            'usedTime': Date.now() - this.startTime,
-            'type': this.topic.options_B.type
-          });
-        }
-
-        this.option1Selected = false;
-        this.option2Selected = false;
-        this.startTime = Date.now();
-        this.animateRefresh = false;
-        // Wait for 0.5s to refresh the page
-        setTimeout(() => {
-          if (this.topic.index < topics.topic.length) {
-            this.topic = topics.topic[this.topic.index];
-          } else {
-            this.caculateResult();
-          }
-
-          // Wait for another 0.5s to refresh the page
-          setTimeout(() => {
-            this.animateRefresh = true;
-          }, 300);
-        }, 300);
-      }, 300);
-    },
-    caculateResult() {
-      var position = [[], [], [], []];
-      for (var i = 0; i < this.answers.length; i++) {
-        position[this.answers[i].type.position].push({
-          value: this.answers[i].type.value,
-          usedTime: this.answers[i].usedTime
-        });
-      }
-
-      var result = [-1, -1, -1, -1];
-      for (var i = 0; i < 4; i++) {
-        if (position[i].length === 1) {
-          result[i] = position[i][0].value;
-        } else {
-          if (position[i][0].value === position[i][1].value) {
-            result[i] = position[i][0].value;
-          } else {
-            if (position[i][0].usedTime < position[i][1].usedTime) {
-              result[i] = position[i][0].value;
-            } else {
-              result[i] = position[i][1].value;
-            }
-          }
-        }
-      }
-
-      let resultStr = result[0].toString() + result[1].toString() + result[2].toString() + result[3].toString();
-      // Find hash from result_hasg.json
-      var hash = "undefined";
-      for (var i = 0; i < resultHash.result.length; i++) {
-        if (resultHash['result'][i].type === resultStr) {
-          hash = resultHash['result'][i].hash;
-          break;
-        }
-      }
-
-      router.push({ path: '/result', hash: '#' + hash });
-    }
   },
+  options_B: {
+    text: '',
+    type: {
+      position: -1,
+      value: -1,
+    },
+  },
+});
+const answers = ref<any[]>([]);
+
+const initTestPage = () => {
+  topic.value = topics.topic[topic.value.index];
+  showInitPage.value = false;
+  showTestPage.value = true;
+  startTime = Date.now();
+
+  setTimeout(() => {
+    animateRefresh.value = true;
+  }, 300);
 };
+
+const nextQuestion = () => {
+  setTimeout(() => {
+    if (option1Selected.value) {
+      answers.value.push({
+        usedTime: Date.now() - startTime,
+        type: topic.value.options_A.type,
+      });
+    } else if (option2Selected.value) {
+      answers.value.push({
+        usedTime: Date.now() - startTime,
+        type: topic.value.options_B.type,
+      });
+    }
+
+    option1Selected.value = false;
+    option2Selected.value = false;
+    startTime = Date.now();
+    animateRefresh.value = false;
+
+    setTimeout(() => {
+      if (topic.value.index < topics.topic.length) {
+        topic.value = topics.topic[topic.value.index];
+      } else {
+        caculateResult();
+      }
+
+      setTimeout(() => {
+        animateRefresh.value = true;
+      }, 300);
+    }, 300);
+  }, 300);
+};
+
+const caculateResult = () => {
+  const position = Array.from({ length: 4 }, () => []);
+
+  for (const answer of answers.value) {
+    const { position: pos, value, usedTime } = answer.type;
+    if (pos !== undefined && pos >= 0 && pos < 4) {
+      position[pos].push({ value, usedTime });
+    }
+  }
+
+  const result: number[] = [-1, -1, -1, -1];
+  for (let i = 0; i < 4; i++) {
+    if (position[i].length >= 2) {
+      result[i] = position[i][0].usedTime < position[i][1].usedTime ? position[i][0].value : position[i][1].value;
+    } else if (position[i].length === 1) {
+      result[i] = position[i][0].value;
+    }
+  }
+
+  let resultStr = result[0].toString() + result[1].toString() + result[2].toString() + result[3].toString();
+
+  let hash = "undefined";
+  for (let i = 0; i < resultHash.result.length; i++) {
+    if (resultHash.result[i].type === resultStr) {
+      hash = resultHash.result[i].hash;
+      break;
+    }
+  }
+
+  (router as Router).push({ path: '/result', hash: '#' + hash });
+};
+
 </script>
 
-<style>
+<style scoped>
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
@@ -191,9 +182,7 @@ export default {
     align-items: center;
   }
 }
-</style>
 
-<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease-in-out;
