@@ -61,7 +61,7 @@
   </div>
 </template>
 
-<script>
+<script lang="javascript">
 import topics from '@/assets/explore-page/topics.json';
 import resultHash from '@/assets/explore-page/result_hash.json';
 import router from '../router';
