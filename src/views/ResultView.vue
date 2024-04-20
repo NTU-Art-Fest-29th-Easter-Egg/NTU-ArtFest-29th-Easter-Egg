@@ -31,7 +31,7 @@ const route = useRoute()
 const router = useRouter()
 
 const hash = route.hash.slice(1)
-const resultSrc = '/src/assets/results/' + hash + '.png'
+const resultSrc = ref('')
 const options = ref<UseShareOptions>({})
 
 const { share } = useShare(options)
@@ -41,7 +41,8 @@ onMounted(async () => {
     router.push({ path: '/404' })
   }
 
-  const image = await fetch(resultSrc).then((res) => res.blob())
+  resultSrc.value = (await import(`@/assets/results/${hash}.png`)).default
+  const image = await fetch(resultSrc.value).then((res) => res.blob())
   options.value.files = [new File([image], 'result.png', { type: image.type })]
 })
 </script>
