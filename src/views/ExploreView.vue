@@ -142,7 +142,6 @@ export default {
         if (this.topic.index < topics.topic.length) {
           this.topic = topics.topic[this.topic.index];
         } else {
-          console.log(this.answers);
           this.caculateResult();
         }
 
@@ -188,9 +187,7 @@ export default {
         }
       }
 
-      console.log(resultStr);
-      console.log(hash);
-      router.push('/result#' + hash);
+      router.push({ path: '/result', hash: '#' + hash });
     }
   },
 };
