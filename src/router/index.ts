@@ -14,21 +14,14 @@ const router = createRouter({
       component: () => import('../views/ShareWithQRCodeView.vue')
     },
     {
-      path: '/',
-      name: 'Psychological',
-      component: () => import('../components/psychologicalBanner.vue'),
-      children: [
-        {
-          path: 'explore',
-          name: 'Explore',
-          component: () => import('../views/ExploreView.vue')
-        },
-        {
-          path: 'result',
-          name: 'Result',
-          component: () => import('../views/ResultView.vue')
-        }
-      ]
+      path: '/explore',
+      name: 'Explore',
+      component: () => import('../views/ExploreView.vue'),
+    },
+    {
+      path: '/result',
+      name: 'Result',
+      component: () => import('../views/ResultView.vue')
     },
     {
       path: '/:pathMatch(.*)*',

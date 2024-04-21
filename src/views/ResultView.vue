@@ -1,33 +1,39 @@
 <template>
-  <div class="mx-8 h-[calc(85dvh-52px)] flex flex-col justify-center items-center">
-    <img :src="resultSrc" class="max-h-[70dvh]" />
-    <div class="text-base animate-pulse" :class="isSupported ? 'text-yellow-700' : 'text-red-700'">
-      {{ isSupported ? '長按圖片可以下載' : '內嵌瀏覽器無法長按下載' }}
+  <div class="bg-gradient-to-br from-white to-[#F6F800] h-lvh">
+    <img src="@/assets/result-page/title.png" class="w-48 pl-5 pt-3" />
+    <div class="mx-8 h-[calc(85dvh-52px)] flex flex-col justify-center items-center">
+      <img :src="resultSrc" class="max-h-[70dvh]" />
+      <div
+        class="text-base animate-pulse"
+        :class="isSupported ? 'text-yellow-700' : 'text-red-700'"
+      >
+        {{ isSupported ? '長按圖片可以下載' : '內嵌瀏覽器無法長按下載' }}
+      </div>
     </div>
-  </div>
-  <div class="fixed bottom-[calc(12dvh-20px)] right-6">
-    <ElButton
-      color="#000000"
-      size="large"
-      round
-      :disabled="!isSupported"
-      class="*:text-lg *:text-center *:font-bold *:text-white *:hover:text-yellow-500"
-      @click="shareResult()"
-    >
-      分享
-    </ElButton>
-    <ElButton
-      color="#000000"
-      size="large"
-      round
-      tag="a"
-      href="https://ntuartfest.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="*:text-lg *:text-center *:font-bold *:text-white *:hover:text-yellow-500"
-    >
-      回到藝術季官網
-    </ElButton>
+    <div class="fixed bottom-[calc(12dvh-20px)] right-6">
+      <ElButton
+        color="#000000"
+        size="large"
+        round
+        :disabled="!isSupported"
+        class="*:text-lg *:text-center *:font-bold *:text-white *:hover:text-yellow-500"
+        @click="shareResult()"
+      >
+        分享
+      </ElButton>
+      <ElButton
+        color="#000000"
+        size="large"
+        round
+        tag="a"
+        href="https://ntuartfest.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="*:text-lg *:text-center *:font-bold *:text-white *:hover:text-yellow-500"
+      >
+        回到藝術季官網
+      </ElButton>
+    </div>
   </div>
 </template>
 
