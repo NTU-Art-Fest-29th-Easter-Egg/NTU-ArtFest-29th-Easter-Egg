@@ -1,13 +1,13 @@
 <template>
   <div class="bg-gradient-to-b from-[#F9FB00] to-white h-lvh">
     <img src="@/assets/result-page/head.png" class="pl-10 pr-10" />
-    <div class="mx-8 h-[calc(85dvh-52px)] flex flex-col justify-center items-center">
-      <img :src="resultSrc" class="max-h-[70dvh] pt-3" />
+    <div class="mx-8 h-[calc(85lvh-52px)] flex flex-col justify-center items-center">
+      <img :src="resultSrc" class="max-h-[70lvh] pt-3" />
       <div class="text-base animate-pulse" :class="isSupported ? 'text-yellow-700' : 'text-red-700'">
         {{ isSupported ? '▲ 長按圖片下載結果 ▲' : '這個瀏覽器無法使用下載與分享' }}
       </div>
     </div>
-    <div class="bottom-[calc(12dvh-20px)] flex justify-center items-center">
+    <div class="bottom-[calc(12lvh-20px)] flex justify-center items-center">
       <ElButton color="#000000" round tag="router-link" to="/explore"
         class="*:text-center *:font-bold *:text-white *:hover:text-yellow-500">
         重新測驗
