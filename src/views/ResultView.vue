@@ -51,7 +51,7 @@ onBeforeMount(async () => {
     router.push({ path: '/404' })
   }
 
-  resultSrc.value = (await import(`@/assets/results/${hash}.png`)).default
+  resultSrc.value = (await import(`@/assets/results/${hash} Large.jpeg`)).default
 
   if (isSupported.value) {
     const image = await fetch(resultSrc.value).then((res) => res.blob())

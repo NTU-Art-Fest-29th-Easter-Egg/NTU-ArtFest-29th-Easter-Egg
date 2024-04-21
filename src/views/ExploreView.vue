@@ -1,6 +1,6 @@
 <template>
   <div class="explore">
-    <div class="bg-gradient-to-b from-[#F9FB00] to-white h-screen flex flex-col items-center justify-center">
+    <div class="bg-gradient-to-b from-[#F9FB00] to-white h-auto flex flex-col items-center justify-start">
       <transition name="fade" mode="in-out" appear>
         <div class="enterPage">
           <div v-show="showInitPage">
@@ -24,10 +24,10 @@
 
       <transition name="fade" mode="in-out" appear>
         <div class="testPage" v-show="animateRefresh">
-          <div class="bg-black h-screen flex flex-col items-center justify-center">
+          <div class="bg-black h-screen flex flex-col items-center justify-start">
             <div class="relative">
               <img src="@/assets/explore-page/QuestionBackground.png" class="w-12/12 my-5 mt-12">
-              <p class="w-[80%] absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black">
+              <p class="w-[80%] absolute top-[42%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black">
                 {{ topic.question }}
               </p>
             </div>
