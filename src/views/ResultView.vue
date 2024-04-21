@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="bottom-[calc(12dvh-20px)] flex justify-center items-center">
-      <ElButton color="#000000" round tag="a" href="/explore" rel="noopener noreferrer"
+      <ElButton color="#000000" round tag="router-link" to="/explore"
         class="*:text-center *:font-bold *:text-white *:hover:text-yellow-500">
         重新測驗
       </ElButton>
