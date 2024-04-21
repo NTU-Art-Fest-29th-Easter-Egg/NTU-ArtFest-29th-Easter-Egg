@@ -10,7 +10,7 @@
 
       <router-link to="/explore">
         <img src="../assets/main-page/button.png" alt="enter"
-          class="animate-breathe mt-[-100px] w-full ml-[30px] mx-auto my-auto select-none pointer-events-none" />
+          class="animate-breathe mt-[-100px] w-full ml-[30px] mx-auto my-auto select-none" />
       </router-link>
     </div>
   </main>
