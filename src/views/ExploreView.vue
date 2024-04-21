@@ -2,23 +2,28 @@
   <div class="explore">
     <div class="bg-gradient-to-b from-[#F9FB00] to-white h-screen flex flex-col items-center justify-center">
       <transition name="fade" mode="in-out" appear>
-        <div class="enterPage" v-if="!showTestPage" v-show="showInitPage">
-          <div class="flex justify-center items-center">
+        <div class="enterPage">
+          <div v-show="showInitPage">
             <div class="flex justify-center items-center">
-              <img src="@/assets/explore-page/ExploreTitle.png" class="mr-7">
+              <div class="flex justify-center items-center">
+                <img src="@/assets/explore-page/ExploreTitle.png" class="mr-7" v-show="showInitPage" />
+              </div>
+            </div>
+
+            <div class="flex justify-center items-center">
+              <img @click="initTestPage" src="@/assets/explore-page/EnterButton.png" class="w-8/12 mx-5 my-3 breathe"
+                v-show="showInitPage" />
+            </div>
+
+            <div class="flex justify-end items-center mr-4">
+              <img src="@/assets/explore-page/TextForArtFest_Black.png" class="h-8" v-show="showInitPage" />
             </div>
           </div>
-
-          <div class="flex justify-center items-center" v-show="showInitPage">
-            <img @click="initTestPage" src="@/assets/explore-page/EnterButton.png" class="w-8/12 mx-5 my-3 breathe" />
-          </div>
-
-          <div class="flex justify-end items-center mr-4" v-show="showInitPage">
-            <img src="@/assets/explore-page/TextForArtFest_Black.png" class="h-8">
-          </div>
         </div>
+      </transition>
 
-        <div class="testPage" v-else v-show="animateRefresh">
+      <transition name="fade" mode="in-out" appear>
+        <div class="testPage" v-show="animateRefresh">
           <div class="bg-black h-screen flex flex-col items-center justify-center">
             <div class="relative">
               <img src="@/assets/explore-page/QuestionBackground.png" class="w-12/12 my-5 mt-12">
@@ -108,6 +113,7 @@ const initTestPage = () => {
 };
 
 const nextQuestion = () => {
+  showInitPage.value = false;
   setTimeout(() => {
     if (option1Selected.value) {
       answers.value.push({
