@@ -167,6 +167,19 @@ const caculateResult = () => {
 
   let resultStr = result[0].toString() + result[1].toString() + result[2].toString() + result[3].toString();
 
+  // Send a get request to send the result to the server
+  // https://docs.google.com/forms/d/e/1FAIpQLSev0Kl2_VkblsAfVr-QP2VVQqcssShTaTe2CpMAAKJkghrf2w/formResponse?entry.1286988761=1011
+
+  fetch(`https://docs.google.com/forms/d/e/1FAIpQLSev0Kl2_VkblsAfVr-QP2VVQqcssShTaTe2CpMAAKJkghrf2w/formResponse?entry.1286988761=${resultStr}`, {
+    mode: 'no-cors'
+  })
+    .then(() => {
+      console.log('Request succeeded');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
   let hash = "undefined";
   for (let i = 0; i < resultHash.result.length; i++) {
     if (resultHash.result[i].type === resultStr) {
