@@ -1,37 +1,24 @@
 <template>
-  <div class="bg-gradient-to-br from-white to-[#F6F800] h-lvh">
-    <img src="@/assets/result-page/title.png" class="w-48 pl-5 pt-3" />
+  <div class="bg-gradient-to-b from-[#F9FB00] to-white h-lvh">
+    <img src="@/assets/result-page/head.png" class="pl-10 pr-10" />
     <div class="mx-8 h-[calc(85dvh-52px)] flex flex-col justify-center items-center">
-      <img :src="resultSrc" class="max-h-[70dvh]" />
-      <div
-        class="text-base animate-pulse"
-        :class="isSupported ? 'text-yellow-700' : 'text-red-700'"
-      >
-        {{ isSupported ? '長按圖片可以下載' : '內嵌瀏覽器無法長按下載' }}
+      <img :src="resultSrc" class="max-h-[70dvh] pt-3" />
+      <div class="text-base animate-pulse" :class="isSupported ? 'text-yellow-700' : 'text-red-700'">
+        {{ isSupported ? '▲ 長按圖片下載結果 ▲' : '這個瀏覽器無法使用下載與分享' }}
       </div>
     </div>
-    <div class="fixed bottom-[calc(12dvh-20px)] right-6">
-      <ElButton
-        color="#000000"
-        size="large"
-        round
-        :disabled="!isSupported"
-        class="*:text-lg *:text-center *:font-bold *:text-white *:hover:text-yellow-500"
-        @click="shareResult()"
-      >
+    <div class="bottom-[calc(12dvh-20px)] flex justify-center items-center">
+      <ElButton color="#000000" round tag="router-link" to="/explore"
+        class="*:text-center *:font-bold *:text-white *:hover:text-yellow-500">
+        重新測驗
+      </ElButton>
+      <ElButton color="#000000" round :disabled="!isSupported"
+        class="*:text-center *:font-bold *:text-white *:hover:text-yellow-500" @click="shareResult()">
         分享
       </ElButton>
-      <ElButton
-        color="#000000"
-        size="large"
-        round
-        tag="a"
-        href="https://ntuartfest.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="*:text-lg *:text-center *:font-bold *:text-white *:hover:text-yellow-500"
-      >
-        回到藝術季官網
+      <ElButton color="#000000" round tag="a" href="https://ntuartfest.com/" target="_blank" rel="noopener noreferrer"
+        class="*:text-center *:font-bold *:text-white *:hover:text-yellow-500">
+        藝術季官網
       </ElButton>
     </div>
   </div>
@@ -75,9 +62,9 @@ onBeforeMount(async () => {
 onMounted(() => {
   if (!isSupported.value) {
     ElMessage.warning({
-      message: '內嵌瀏覽器無法長按下載及分享',
+      message: '這個瀏覽器無法下載與分享圖片，請複製網址至其他瀏覽器操作',
       center: true,
-      duration: 7000
+      duration: 5000
     })
   }
 })
