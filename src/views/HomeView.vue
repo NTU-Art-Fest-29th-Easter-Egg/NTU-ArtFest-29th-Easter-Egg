@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <main class="h-lvh w-full overflow-hidden overflow-y-auto">
-    <div class="bg-black flex h-screen flex-col">
+  <main class="h-auto w-full overflow-hidden overflow-y-auto">
+    <div class="bg-black flex h-auto flex-col">
       <img src="../assets/main-page/head.png" alt="title"
         class="mt-[30px] mb-0 w-full mx-auto my-auto select-none pointer-events-none" />
 
