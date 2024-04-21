@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main class="h-screen w-full">
+  <main class="h-screen w-full overflow-hidden">
     <div class="bg-black flex h-screen flex-col">
       <img src="../assets/main-page/head.png" alt="title"
         class="mt-[30px] mb-0 w-[100%] mx-auto my-auto select-none pointer-events-none" />
