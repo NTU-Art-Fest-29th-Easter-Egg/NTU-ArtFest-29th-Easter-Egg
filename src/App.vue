@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
+import Footer from './components/Footer.vue'
 
 onBeforeMount(() => {
   const router = useRouter()
@@ -12,4 +13,5 @@ onBeforeMount(() => {
 
 <template>
   <RouterView />
+  <Footer />
 </template>
