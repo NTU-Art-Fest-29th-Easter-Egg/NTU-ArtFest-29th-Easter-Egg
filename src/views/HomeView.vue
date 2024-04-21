@@ -6,7 +6,7 @@
   <main class="h-lvh w-full overflow-hidden overflow-y-auto">
     <div class="bg-black flex h-screen flex-col">
       <img src="../assets/main-page/head.png" alt="title"
-        class="mt-[30px] mb-0 w-[100%] mx-auto my-auto select-none pointer-events-none" />
+        class="mt-[30px] mb-0 w-full mx-auto my-auto select-none pointer-events-none" />
 
       <router-link to="/explore">
         <img src="../assets/main-page/button.png" alt="enter"
