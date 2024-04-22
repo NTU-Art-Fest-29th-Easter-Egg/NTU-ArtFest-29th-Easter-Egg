@@ -21,48 +21,62 @@
           </div>
         </div>
       </transition>
+    </div>
 
-      <transition name="fade" mode="in-out" appear>
-        <div class="testPage" v-show="animateRefresh">
-          <div class="bg-black h-screen flex flex-col items-center justify-start">
-            <div class="relative">
-              <img src="@/assets/explore-page/QuestionBackground.png" class="w-12/12 my-5 mt-12">
-              <p class="w-[80%] absolute top-[42%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black">
-                {{ topic.question }}
-              </p>
+    <div class="bg-black h-auto flex flex-col items-center justify-start"></div>
+    <transition name="fade" mode="in-out" appear>
+      <div>
+
+        <transition name="fade" mode="in-out" appear>
+          <div v-show="!animateRefresh && !showInitPage">
+            <div class="bg-black h-screen w-screen flex flex-col items-center justify-center">
+              <img src="@/assets/footer/logo.png" class="w-[40%] pb-4">
             </div>
+          </div>
+        </transition>
 
-            <div class="pt-0">
-              <div>
-                <div
-                  :class="{ 'bg-[#F9FB00] text-black border-black': option1Selected, 'bg-white text-black border-black': !option1Selected }"
-                  class="w-[90vw] h-auto min-h-[1rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
-                  @click="option1Selected = true; option2Selected = false; nextQuestion()">
-                  <p class="max-w-[90%] text-left mt-1 mb-1 text-sm">
-                    {{ topic.options_A.text }}
-                  </p>
-                </div>
+        <transition name="fade" mode="in-out" appear>
+          <div class="testPage" v-show="animateRefresh">
+            <div class="bg-black h-screen flex flex-col items-center justify-start">
+              <div class="relative">
+                <img src="@/assets/explore-page/QuestionBackground.png" class="w-12/12 my-5 mt-12">
+                <p class="w-[80%] absolute top-[42%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black">
+                  {{ topic.question }}
+                </p>
               </div>
 
-              <div class="pt-3">
-                <div
-                  :class="{ 'bg-[#F9FB00] text-black border-black': option2Selected, 'bg-white text-black border-black': !option2Selected }"
-                  class="w-[90vw] h-auto min-h-[1rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
-                  @click="option2Selected = true; option1Selected = false; nextQuestion()">
-                  <p class="max-w-[90%] text-left mt-1 mb-1 text-sm">
-                    {{ topic.options_B.text }}
-                  </p>
+              <div class="pt-0">
+                <div>
+                  <div
+                    :class="{ 'bg-[#F9FB00] text-black border-black': option1Selected, 'bg-white text-black border-black': !option1Selected }"
+                    class="w-[90vw] h-auto min-h-[1rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
+                    @click="option1Selected = true; option2Selected = false; nextQuestion()">
+                    <p class="max-w-[90%] text-left mt-1 mb-1 text-sm">
+                      {{ topic.options_A.text }}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="flex justify-center items-center pt-2">
-                <img src="@/assets/explore-page/TextForArtFest_White.png" class="h-8">
+                <div class="pt-3">
+                  <div
+                    :class="{ 'bg-[#F9FB00] text-black border-black': option2Selected, 'bg-white text-black border-black': !option2Selected }"
+                    class="w-[90vw] h-auto min-h-[1rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
+                    @click="option2Selected = true; option1Selected = false; nextQuestion()">
+                    <p class="max-w-[90%] text-left mt-1 mb-1 text-sm">
+                      {{ topic.options_B.text }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex justify-center items-center pt-2">
+                  <img src="@/assets/explore-page/TextForArtFest_White.png" class="h-8">
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </transition>
-    </div>
+        </transition>
+      </div>
+    </transition>
   </div>
 </template>
 
