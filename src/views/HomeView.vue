@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <main class="h-auto w-full overflow-hidden overflow-y-auto">
     <div class="bg-black flex h-auto flex-col">
@@ -15,6 +11,32 @@
     </div>
   </main>
 </template>
+
+<script lang="ts" setup>
+import { useShare, type UseShareOptions } from '@vueuse/core'
+import { onBeforeMount, onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { ElButton, ElMessage } from 'element-plus'
+
+const route = useRoute()
+const router = useRouter()
+
+const options = ref<UseShareOptions>({})
+
+const { isSupported, share } = useShare(options)
+
+onMounted(() => {
+  if (!isSupported.value) {
+    ElMessage.warning({
+      message: '這個瀏覽器可能造成部分功能異常，請複製網址至其他瀏覽器操作！',
+      center: true,
+      duration: 10000,
+      showClose: true
+    })
+  }
+})
+</script>
+
 
 <style scoped>
 @keyframes breathe {
