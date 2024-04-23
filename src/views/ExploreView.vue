@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onBeforeMount, onMounted, ref } from 'vue';
 import topics from '@/assets/explore-page/topics.json';
 import resultHash from '@/assets/explore-page/result_hash.json';
 import { useRoute, useRouter } from 'vue-router'
@@ -201,7 +201,7 @@ const caculateResult = () => {
       break;
     }
   }
-
+  leave();
   (router as Router).push({ path: '/result', hash: '#' + hash });
 };
 
@@ -213,6 +213,10 @@ const enter = () => {
 const leave = () => {
   document.body.style.overflow = '';
 };
+
+onMounted(() => {
+  leave();
+})
 </script>
 
 <style scoped>
