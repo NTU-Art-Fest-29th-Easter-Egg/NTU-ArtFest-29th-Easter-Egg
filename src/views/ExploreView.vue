@@ -27,16 +27,16 @@
     <transition name="fade" mode="in-out" appear>
       <div>
 
-        <transition name="fade" mode="in-out" appear>
+        <transition name="fade" mode="in-out" appear @enter="enter" @leave="leave">
           <div v-show="!animateRefresh && !showInitPage">
-            <div class="bg-black h-screen w-screen flex flex-col items-center justify-center">
+            <div class="bg-black h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
               <img src="@/assets/footer/logo.png" class="w-[40%] pb-4">
             </div>
           </div>
         </transition>
 
         <transition name="fade" mode="in-out" appear>
-          <div class="testPage" v-show="animateRefresh">
+          <div class="testPage" v-show="animateRefresh && !showInitPage">
             <div class="bg-black h-screen flex flex-col items-center justify-start">
               <div class="relative">
                 <img src="@/assets/explore-page/QuestionBackground.png" class="w-12/12 my-5 mt-12">
@@ -205,6 +205,14 @@ const caculateResult = () => {
   (router as Router).push({ path: '/result', hash: '#' + hash });
 };
 
+const enter = () => {
+  window.scrollTo(0, 0);
+  document.body.style.overflow = 'hidden';
+};
+
+const leave = () => {
+  document.body.style.overflow = '';
+};
 </script>
 
 <style scoped>
