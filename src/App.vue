@@ -13,5 +13,5 @@ onBeforeMount(() => {
 
 <template>
   <RouterView />
-  <Footer />
+  <Footer v-show="$router.currentRoute.value.path !== '/explore'" />
 </template>
