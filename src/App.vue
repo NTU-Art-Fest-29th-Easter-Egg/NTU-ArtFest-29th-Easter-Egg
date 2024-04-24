@@ -5,7 +5,6 @@ import Footer from './components/Footer.vue'
 
 onBeforeMount(() => {
   const router = useRouter()
-  console.log()
   if (window.location.pathname.toLowerCase() != '/sharewithqrcode' && window.matchMedia('(min-width: 768px)').matches) {
     router.push('/shareWithQRCode')
   }
