@@ -51,7 +51,7 @@
                     :class="{ 'bg-[#F9FB00] text-black border-black': option1Selected, 'bg-white text-black border-black': !option1Selected }"
                     class="w-[90vw] h-auto min-h-[1rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
                     @click="option1Selected = true; option2Selected = false; nextQuestion()">
-                    <p class="max-w-[90%] text-left mt-1 mb-1 text-sm">
+                    <p class="max-w-[90%] text-left mt-1 mb-1 text-base">
                       {{ topic.options_A.text }}
                     </p>
                   </div>
@@ -62,7 +62,7 @@
                     :class="{ 'bg-[#F9FB00] text-black border-black': option2Selected, 'bg-white text-black border-black': !option2Selected }"
                     class="w-[90vw] h-auto min-h-[1rem] rounded-3xl flex items-center justify-center cursor-pointer border-2 transition-colors ease-in-out duration-500"
                     @click="option2Selected = true; option1Selected = false; nextQuestion()">
-                    <p class="max-w-[90%] text-left mt-1 mb-1 text-sm">
+                    <p class="max-w-[90%] text-left mt-1 mb-1 text-base">
                       {{ topic.options_B.text }}
                     </p>
                   </div>
