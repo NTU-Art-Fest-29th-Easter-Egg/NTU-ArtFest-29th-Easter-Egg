@@ -1,11 +1,16 @@
 <template>
   <div class="NotFound" @touchstart="playSound" @mouseover="playSound" @touchmove="playSound">
-    <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <main class="grid h-screen place-items-center px-6 py-24 sm:py-32 lg:px-8" @touchstart="playSound"
+      @mouseover="playSound" @touchmove="playSound">
       <div class="text-center">
-        <p class="text-base font-semibold text-indigo-600">404</p>
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl rainbow-text">您撥的號碼是空號，請查明後再撥</h1>
-        <p class="mt-6 text-base leading-7 text-gray-600">The number you dialed is incorrect, please check it and try
+        <p class="text-xl font-semibold text-indigo-600">404</p>
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-100 sm:text-5xl">您撥的號碼是空號</h1>
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-100 sm:text-5xl">請查明後再撥</h1>
+        <p class="mt-6 text-base leading-7 text-gray-400">The number you dialed is incorrect</p>
+        <p class="text-base leading-7 text-gray-400">Please check it and try
           again!</p>
+        <button @click="playSound" class="mt-6 px-6 py-3 text-sm font-semibold text-white bg-indigo-600 rounded-lg">Call
+          Out</button>
       </div>
     </main>
   </div>
