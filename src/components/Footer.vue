@@ -6,8 +6,11 @@
             class="text-white underline text-center">
             第 29 屆臺大藝術季<br>
             29th NTU ArtFest<br>
-            《台北掛我電話》<br>
-            官網
+            《台北掛我電話》
+        </a><br><br>
+        <a href="https://github.com/NTU-Art-Fest-29th-Easter-Egg/NTU-ArtFest-29th-Easter-Egg" target="_blank" rel="noopener noreferrer"
+            class="text-white underline text-center">
+            GitHub
         </a>
     </div>
 </template>
