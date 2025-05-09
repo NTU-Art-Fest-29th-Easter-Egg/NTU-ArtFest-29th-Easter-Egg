@@ -6,7 +6,7 @@
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
-    "baseUrl": ".",
+    "baseUrl": "/NTU-ArtFest-29th-Easter-Egg/",
     "paths": {
       "@/*": ["./src/*"]
     }
